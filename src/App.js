@@ -19,13 +19,12 @@ function App() {
   const submitHandler = (e) => {
     e.preventDefault();
     setCity(e.target[0].value);
-    console.log(e.target[0].value);
     e.target.reset();
   };
 
   useEffect(() => {
     fetch(
-      `https://api.openweathermap.org/geo/1.0/direct?q=${city},&appid=${process.env.REACT_APP_API_KEY}`
+      `https://api.openweathermap.org/geo/1.0/direct?q=${city},&appid=${process.env.REACT_APP_WEATHER_API_KEY}`
     )
       .then((response) => {
         if (response.ok) {
@@ -36,14 +35,12 @@ function App() {
       .then((data) => {
         setCityData(data);
         setCountry(data[0].country);
-        setCity(data[0].name);
         setLat(data[0].lat);
         setLon(data[0].lon);
         const dataLat = data[0].lat;
         const dataLon = data[0].lon;
-        console.log(data);
         fetch(
-          `https://api.openweathermap.org/data/2.5/weather?lat=${dataLat}&lon=${dataLon}&appid=${process.env.REACT_APP_API_KEY}&units=metric`
+          `https://api.openweathermap.org/data/2.5/weather?lat=${dataLat}&lon=${dataLon}&appid=${process.env.REACT_APP_WEATHER_API_KEY}&units=metric`
         )
           .then((response) => {
             if (response.ok) {
@@ -52,15 +49,24 @@ function App() {
             throw response;
           })
           .then((data) => {
-            setDate(new Date(data.dt * 1000).toLocaleDateString());
-            setTime(new Date(data.dt * 1000).toLocaleTimeString());
             setTemp(data.main.temp);
             setHumidity(data.main.humidity);
             setSunrise(new Date(data.sys.sunrise * 1000).toLocaleTimeString());
             setSunset(new Date(data.sys.sunset * 1000).toLocaleTimeString());
             setWeather(data.weather[0].description);
             setWindSpeed(data.wind.speed);
-            console.log(data);
+            fetch(
+              `http://api.timezonedb.com/v2.1/get-time-zone?key=${process.env.REACT_APP_TIME_API_KEY}&format=json&by=position&lat=${dataLat}&lng=${dataLon}`
+            )
+              .then((response) => {
+                if (response.ok) {
+                  return response.json();
+                }
+                throw response;
+              })
+              .then((data) => {
+                console.log(data);
+              });
           });
       });
   }, [city]);
@@ -85,12 +91,7 @@ function App() {
         <p>{humidity}%</p>
         <p>{sunrise}</p>
         <p>{sunset}</p>
-        <p>
-          {weather.replace(
-            weather.slice(0, 1),
-            weather.slice(0, 1).toUpperCase()
-          )}
-        </p>
+        <p>{weather}</p>
         <p>{windSpeed} m/s</p>
       </div>
     </div>
