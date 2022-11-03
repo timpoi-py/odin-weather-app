@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/odin-weather-app/static/css/main.f2400483.css",
+    "main.js": "/odin-weather-app/static/js/main.d9bbfd8b.js",
+    "index.html": "/odin-weather-app/index.html",
+    "main.f2400483.css.map": "/odin-weather-app/static/css/main.f2400483.css.map",
+    "main.d9bbfd8b.js.map": "/odin-weather-app/static/js/main.d9bbfd8b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f2400483.css",
+    "static/js/main.d9bbfd8b.js"
+  ]
+}
