@@ -1,6 +1,6 @@
-import "./css/App.css";
+import "./css/styles";
 import { DateTime } from "luxon";
-import { useEffect, useState, useContext, createContext } from "react";
+import React, { useEffect, useState, useContext, createContext } from "react";
 import Today from "./components/Today";
 
 export const todayContext = createContext();
@@ -61,9 +61,9 @@ function App() {
           })
           .then((data) => {
             setUpdateTime(new Date(data.dt * 1000).toLocaleTimeString());
-            setTemp(Math.round(data.main.temp * 10) / 10);
-            setMinTemp(Math.round(data.main.temp_min * 10) / 10);
-            setMaxTemp(Math.round(data.main.temp_max * 10) / 10);
+            setTemp(data.main.temp);
+            setMinTemp(data.main.temp_min);
+            setMaxTemp(data.main.temp_max);
             setPressure(data.main.pressure);
             setHumidity(data.main.humidity);
             setSunrise(new Date(data.sys.sunrise * 1000).toLocaleTimeString());
@@ -119,8 +119,8 @@ function App() {
     <div className="App">
       <div className="app-container">
         <todayContext.Provider
-          value={
-            (submitHandler,
+          value={{
+            submitHandler,
             city,
             country,
             date,
@@ -133,8 +133,8 @@ function App() {
             pressure,
             sunrise,
             sunset,
-            windSpeed)
-          }
+            windSpeed,
+          }}
         >
           <Today />
         </todayContext.Provider>

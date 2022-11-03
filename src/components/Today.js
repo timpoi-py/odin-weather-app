@@ -22,40 +22,50 @@ const Today = () => {
   } = useContext(todayContext);
 
   return (
-    <div>
+    <div className="Today">
       <form onSubmit={(e) => submitHandler(e)}>
         <input type="text" className="searchCity" placeholder="Search City" />
       </form>
-      <div className="upper-wrapper">
+      <div className="city-date-time-wrapper">
         <p className="city">
           {city} <span className="country">{country}</span>
         </p>
         <p className="date-time">
           <span>
-            <span class="material-symbols-outlined">calendar_month</span>
+            <span class="material-symbols-outlined date">calendar_month</span>
             {date}
           </span>
           <span>
-            <span class="material-symbols-outlined">schedule</span>
+            <span class="material-symbols-outlined time">schedule</span>
             {time}
           </span>
         </p>
       </div>
 
-      <p>{weather}</p>
-
-      <p className="temp">
-        {temp}
-        <span>&#176;C</span>
-      </p>
-      <p className="min-temp">
-        {minTemp}
-        <span>&#176;C</span>
-      </p>
-      <p className="max-temp">
-        {maxTemp}
-        <span>&#176;C</span>
-      </p>
+      <div className="weather-wrapper">
+        <span class="material-symbols-outlined cloudy">cloudy</span>
+        <div className="temperatures-weather">
+          <p>{weather}</p>
+          <p className="temp">
+            {temp}
+            <span>
+              &#176;<span>c</span>
+            </span>
+          </p>
+          <div className="min-max-temp">
+            <p className="min-temp">
+              <span class="material-symbols-outlined minTemp">thermometer</span>
+              {minTemp}
+              <span>&#176;</span>
+            </p>
+            <p className="max-temp">
+              <span class="material-symbols-outlined maxTemp">thermometer</span>
+              {maxTemp}
+              <span>&#176;</span>
+            </p>
+          </div>
+        </div>
+      </div>
       <p>{humidity}%</p>
       <p>{pressure}</p>
       <p>{sunrise}</p>
