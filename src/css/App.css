@@ -1,1 +1,46 @@
-/*# sourceMappingURL=App.css.map */
+.App {
+  background-color: rgb(30, 30, 30);
+}
+.App .app-container {
+  padding: 0.5em;
+}
+.App .app-container form .searchCity {
+  width: 100%;
+  border-radius: 99px;
+  border: 0;
+  padding: 0 1em;
+  height: 2.5em;
+  background-color: rgb(30, 30, 30);
+  box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.6);
+}
+.App .app-container form .searchCity:focus {
+  outline: none;
+}
+.App .app-container form .searchCity::-moz-placeholder {
+  color: rgba(238, 238, 238, 0.6);
+}
+.App .app-container form .searchCity:-ms-input-placeholder {
+  color: rgba(238, 238, 238, 0.6);
+}
+.App .app-container form .searchCity::placeholder {
+  color: rgba(238, 238, 238, 0.6);
+}
+.App .app-container .upper-wrapper .city {
+  font-size: 2.5em;
+  font-weight: 900;
+}
+.App .app-container .upper-wrapper .city .country {
+  font-size: 1rem;
+  font-weight: 400;
+}
+.App .app-container .upper-wrapper .date-time {
+  display: flex;
+  gap: 1.5em;
+}
+.App .app-container .upper-wrapper .date-time span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+  color: rgba(238, 238, 238, 0.8);
+}/*# sourceMappingURL=App.css.map */

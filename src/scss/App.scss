@@ -1,1 +1,50 @@
 @import "custom";
+
+.App {
+  background-color: $clr-dark;
+
+  .app-container {
+    padding: 0.5em;
+
+    form .searchCity {
+      width: 100%;
+      border-radius: 99px;
+      border: 0;
+      padding: 0 1em;
+      height: 2.5em;
+      background-color: $clr-dark;
+      box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.6);
+    }
+    form .searchCity:focus {
+      outline: none;
+    }
+    form .searchCity::placeholder {
+      color: rgba(238, 238, 238, 0.6);
+    }
+
+    .upper-wrapper {
+      .city {
+        font-size: 2.5em;
+        font-weight: 900;
+
+        .country {
+          font-size: 1rem;
+          font-weight: 400;
+        }
+      }
+
+      .date-time {
+        display: flex;
+        gap: 1.5em;
+
+        span {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 0.5em;
+          color: $fnt-clr-white-opq;
+        }
+      }
+    }
+  }
+}
