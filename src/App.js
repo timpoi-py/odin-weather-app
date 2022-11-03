@@ -84,7 +84,7 @@ function App() {
                 setForecastList(data.list);
               });
             fetch(
-              `http://api.timezonedb.com/v2.1/get-time-zone?key=${process.env.REACT_APP_TIME_API_KEY}&format=json&by=position&lat=${dataLat}&lng=${dataLon}`
+              `https://api.timezonedb.com/v2.1/get-time-zone?key=${process.env.REACT_APP_TIME_API_KEY}&format=json&by=position&lat=${dataLat}&lng=${dataLon}`
             )
               .then((response) => {
                 if (response.ok) {
