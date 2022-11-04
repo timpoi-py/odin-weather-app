@@ -1,1 +1,8 @@
-/*# sourceMappingURL=TodayForecast.css.map */
+::-webkit-scrollbar {
+  background-color: rgb(30, 30, 30);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: hsl(0deg, 0%, 50%);
+  border-radius: 2em;
+}/*# sourceMappingURL=TodayForecast.css.map */

@@ -1,0 +1,30 @@
+@import "custom";
+
+.weather-card {
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 0.5em;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+
+  .time {
+    margin-bottom: auto;
+  }
+}
+
+.weather-card > * {
+  flex-shrink: 0;
+  width: 10ch;
+  padding: 1em 0;
+  text-align: center;
+  background-color: $clr-lighter-dark;
+  border-radius: 0.75em;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 3px;
+}

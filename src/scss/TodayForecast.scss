@@ -1,1 +1,10 @@
 @import "custom";
+
+::-webkit-scrollbar {
+  background-color: $clr-dark;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $clr-lighter;
+  border-radius: 2em;
+}

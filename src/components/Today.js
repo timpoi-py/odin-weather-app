@@ -1,7 +1,11 @@
 import React from "react";
 import "../css/styles.js";
-import { useContext } from "react";
+import { useContext, createContext } from "react";
 import { todayContext } from "../App.js";
+import WeatherIcon from "./WeatherIcon";
+import TodayForecast from "./TodayForecast";
+
+export const todayForecastContext = createContext();
 
 const pressureIcon = (
   <svg
@@ -134,6 +138,7 @@ const Today = () => {
     sunrise,
     sunset,
     windSpeed,
+    forecastList,
   } = useContext(todayContext);
 
   return (
@@ -160,7 +165,8 @@ const Today = () => {
       </div>
 
       <div className="weather-wrapper">
-        <span class="material-symbols-outlined cloudy">cloudy</span>
+        {/* drizzle, rain, snow, mist, smoke, haze, dust, fog, sand, ash, squall, tornado, clear, clouds */}
+        <WeatherIcon />
         <div className="temperatures-weather">
           <p>{weather}</p>
           <p className="temp">
@@ -213,6 +219,10 @@ const Today = () => {
           <p>{sunset}</p>
         </div>
       </div>
+
+      <todayForecastContext.Provider value={{ forecastList }}>
+        <TodayForecast />
+      </todayForecastContext.Provider>
     </div>
   );
 };

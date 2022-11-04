@@ -2,10 +2,8 @@ import "./css/styles";
 import { DateTime } from "luxon";
 import React, { useEffect, useState, useContext, createContext } from "react";
 import Today from "./components/Today";
-import TodayForecast from "./components/TodayForecast";
 
 export const todayContext = createContext();
-export const todayForecastContext = createContext();
 
 function App() {
   const [cityData, setCityData] = useState();
@@ -27,6 +25,7 @@ function App() {
   const [weather, setWeather] = useState();
   const [windSpeed, setWindSpeed] = useState();
   const [forecastList, setForecastList] = useState([]);
+  const [weatherMain, setWeatherMain] = useState();
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -75,6 +74,7 @@ function App() {
               DateTime.fromMillis(data.sys.sunset * 1000).toFormat("t")
             );
             setWeather(data.weather[0].description);
+            setWeatherMain(data.weather[0].main);
             setWindSpeed(data.wind.speed);
 
             fetch(
@@ -140,19 +140,20 @@ function App() {
             sunrise,
             sunset,
             windSpeed,
+            weatherMain,
+            forecastList,
           }}
         >
           <Today />
         </todayContext.Provider>
-        <todayForecastContext.Provider value={{ forecastList }}>
-          <TodayForecast />
-        </todayForecastContext.Provider>
+
         {/* <ul>
           {forecastList.map((each, id) => {
             let str = JSON.stringify(each);
             return <li key={id}>{str}</li>;
           })}
         </ul> */}
+        {/* drizzle, rain, snow, mist, smoke, haze, dust, fog, sand, ash, squall, tornado, clear, clouds */}
       </div>
     </div>
   );
