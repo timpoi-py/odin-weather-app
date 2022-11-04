@@ -2,8 +2,10 @@ import "./css/styles";
 import { DateTime } from "luxon";
 import React, { useEffect, useState, useContext, createContext } from "react";
 import Today from "./components/Today";
+import TodayForecast from "./components/TodayForecast";
 
 export const todayContext = createContext();
+export const todayForecastContext = createContext();
 
 function App() {
   const [cityData, setCityData] = useState();
@@ -66,8 +68,12 @@ function App() {
             setMaxTemp(data.main.temp_max);
             setPressure(data.main.pressure);
             setHumidity(data.main.humidity);
-            setSunrise(new Date(data.sys.sunrise * 1000).toLocaleTimeString());
-            setSunset(new Date(data.sys.sunset * 1000).toLocaleTimeString());
+            setSunrise(
+              DateTime.fromMillis(data.sys.sunrise * 1000).toFormat("t")
+            );
+            setSunset(
+              DateTime.fromMillis(data.sys.sunset * 1000).toFormat("t")
+            );
             setWeather(data.weather[0].description);
             setWindSpeed(data.wind.speed);
 
@@ -138,12 +144,15 @@ function App() {
         >
           <Today />
         </todayContext.Provider>
-        <ul>
-          {forecastList.map((each) => {
+        <todayForecastContext.Provider value={{ forecastList }}>
+          <TodayForecast />
+        </todayForecastContext.Provider>
+        {/* <ul>
+          {forecastList.map((each, id) => {
             let str = JSON.stringify(each);
-            return <li>{str}</li>;
+            return <li key={id}>{str}</li>;
           })}
-        </ul>
+        </ul> */}
       </div>
     </div>
   );

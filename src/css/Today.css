@@ -78,4 +78,51 @@
 }
 .Today .weather-wrapper .temperatures-weather .min-max-temp .maxTemp {
   color: rgb(255, 160, 160);
+}
+.Today .other-info-wrapper {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: 1.1em;
+  background-color: rgb(65, 65, 65);
+  border-radius: 0.8rem;
+}
+.Today .other-info-wrapper .humidity-wrapper .humidity {
+  font-size: 2em;
+}
+.Today .other-info-wrapper .pressure-wrapper .pressure {
+  padding: 3px;
+  height: 35.2px;
+  fill: #eee;
+}
+.Today .other-info-wrapper .windSpeed-wrapper .windSpeed {
+  font-size: 2em;
+}
+.Today .other-info-wrapper > * {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.2em;
+  width: 150px;
+  padding: 1em 0;
+}
+.Today .other-info-wrapper > div > p:last-child {
+  color: rgba(238, 238, 238, 0.8);
+  font-size: 0.8em;
+}
+.Today .sunrise-sunset-wrapper {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.Today .sunrise-sunset-wrapper div {
+  text-align: center;
+}
+.Today .sunrise-sunset-wrapper div svg {
+  width: 100px;
+  fill: #eee;
+}
+.Today .sunrise-sunset-wrapper div p {
+  font-weight: 700;
 }/*# sourceMappingURL=Today.css.map */

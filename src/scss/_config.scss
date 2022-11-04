@@ -7,6 +7,7 @@
   box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
   color: #eee;
+  user-select: none;
 }
 /* Remove default margin */
 body,
@@ -52,6 +53,7 @@ button,
 textarea,
 select {
   font: inherit;
+  user-select: auto;
 }
 /* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
 @media (prefers-reduced-motion: reduce) {
