@@ -11,7 +11,7 @@ export const todayContext = createContext();
 function App() {
   const [cityData, setCityData] = useState();
   const [country, setCountry] = useState();
-  const [searchCity, setSearchCity] = useState("Korea");
+  const [searchCity, setSearchCity] = useState("Seoul");
   const [city, setCity] = useState();
   const [lat, setLat] = useState();
   const [lon, setLon] = useState();
