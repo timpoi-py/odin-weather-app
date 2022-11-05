@@ -1,0 +1,25 @@
+@import "custom";
+
+.navigation {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: max-content;
+  margin: 0 auto;
+  background-color: $clr-lighter-dark;
+  padding: 0.2em 0.4em;
+  border-radius: 2em;
+
+  a {
+    width: 12ch;
+    border-radius: 2em;
+    font-weight: 600;
+    text-decoration: none;
+    color: rgba(238, 238, 238, 0.8);
+  }
+
+  .active {
+    background-color: $clr-lighter;
+    color: #eee;
+  }
+}

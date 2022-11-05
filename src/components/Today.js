@@ -2,7 +2,7 @@ import React from "react";
 import "../css/styles.js";
 import { useContext, createContext } from "react";
 import { todayContext } from "../App.js";
-import WeatherIcon from "./WeatherIcon";
+import WeatherIconMain from "./WeatherIconMain";
 import TodayForecast from "./TodayForecast";
 
 export const todayForecastContext = createContext();
@@ -124,7 +124,6 @@ const sunsetIcon = (
 
 const Today = () => {
   const {
-    submitHandler,
     city,
     country,
     date,
@@ -143,9 +142,6 @@ const Today = () => {
 
   return (
     <div className="Today">
-      <form onSubmit={(e) => submitHandler(e)}>
-        <input type="text" className="searchCity" placeholder="Search City" />
-      </form>
       <div className="city-date-time-wrapper">
         <p className="city">
           {city} <span className="country">{country}</span>
@@ -166,7 +162,7 @@ const Today = () => {
 
       <div className="weather-wrapper">
         {/* drizzle, rain, snow, mist, smoke, haze, dust, fog, sand, ash, squall, tornado, clear, clouds */}
-        <WeatherIcon />
+        <WeatherIconMain />
         <div className="temperatures-weather">
           <p>{weather}</p>
           <p className="temp">

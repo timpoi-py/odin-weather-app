@@ -1,23 +1,10 @@
 @import "custom";
 
 .Today {
-  form .searchCity {
-    width: 100%;
-    border-radius: 99px;
-    border: 0;
-    padding: 0 1em;
-    height: 2.5em;
-    background-color: $clr-dark;
-    box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.6);
-  }
-
-  form .searchCity:focus {
-    outline: none;
-  }
-
-  form .searchCity::placeholder {
-    color: rgba(238, 238, 238, 0.6);
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
 
   .city-date-time-wrapper {
     .city {

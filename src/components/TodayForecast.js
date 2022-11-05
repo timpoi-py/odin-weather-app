@@ -27,7 +27,7 @@ const TodayForecast = () => {
   return (
     <div className="today-forecast">
       <div className="today-forecast-carousel">
-        <WeatherCard todayForecastList={todayForecastList} />
+        <WeatherCard forecast={todayForecastList} />
       </div>
     </div>
   );

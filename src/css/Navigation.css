@@ -1,0 +1,23 @@
+.navigation {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  margin: 0 auto;
+  background-color: rgb(65, 65, 65);
+  padding: 0.2em 0.4em;
+  border-radius: 2em;
+}
+.navigation a {
+  width: 12ch;
+  border-radius: 2em;
+  font-weight: 600;
+  text-decoration: none;
+  color: rgba(238, 238, 238, 0.8);
+}
+.navigation .active {
+  background-color: hsl(0deg, 0%, 50%);
+  color: #eee;
+}/*# sourceMappingURL=Navigation.css.map */

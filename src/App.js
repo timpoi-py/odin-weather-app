@@ -1,7 +1,10 @@
 import "./css/styles";
 import { DateTime } from "luxon";
 import React, { useEffect, useState, useContext, createContext } from "react";
+import { Routes, Route } from "react-router-dom";
 import Today from "./components/Today";
+import Forecast from "./components/Forecast";
+import Navigation from "./components/Navigation";
 
 export const todayContext = createContext();
 
@@ -124,6 +127,9 @@ function App() {
   return (
     <div className="App">
       <div className="app-container">
+        <form onSubmit={(e) => submitHandler(e)}>
+          <input type="text" className="searchCity" placeholder="Search City" />
+        </form>
         <todayContext.Provider
           value={{
             submitHandler,
@@ -144,8 +150,13 @@ function App() {
             forecastList,
           }}
         >
-          <Today />
+          <Routes>
+            <Route path="/" element={<Today />}></Route>
+            <Route path="/forecast" element={<Forecast />}></Route>
+          </Routes>
         </todayContext.Provider>
+
+        <Navigation />
 
         {/* <ul>
           {forecastList.map((each, id) => {

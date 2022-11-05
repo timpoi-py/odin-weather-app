@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { todayContext } from "../App.js";
 import "../css/styles";
 
-const WeatherIcon = () => {
+const WeatherIconMain = () => {
   const { weatherMain } = useContext(todayContext);
 
   const switchIcon = () => {
@@ -55,11 +55,11 @@ const WeatherIcon = () => {
   };
 
   return (
-    <div className="weather-icon">
+    <div className="weather-icon-main">
       {switchIcon()}
       {/* drizzle, rain, snow, mist, smoke, haze, dust, fog, sand, ash, squall, tornado, clear, clouds */}
     </div>
   );
 };
 
-export default WeatherIcon;
+export default WeatherIconMain;
