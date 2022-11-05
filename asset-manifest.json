@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/odin-weather-app/static/css/main.568c06ca.css",
-    "main.js": "/odin-weather-app/static/js/main.03a28c3a.js",
+    "main.css": "/odin-weather-app/static/css/main.4e53ea44.css",
+    "main.js": "/odin-weather-app/static/js/main.1b73a9b6.js",
     "index.html": "/odin-weather-app/index.html",
-    "main.568c06ca.css.map": "/odin-weather-app/static/css/main.568c06ca.css.map",
-    "main.03a28c3a.js.map": "/odin-weather-app/static/js/main.03a28c3a.js.map"
+    "main.4e53ea44.css.map": "/odin-weather-app/static/css/main.4e53ea44.css.map",
+    "main.1b73a9b6.js.map": "/odin-weather-app/static/js/main.1b73a9b6.js.map"
   },
   "entrypoints": [
-    "static/css/main.568c06ca.css",
-    "static/js/main.03a28c3a.js"
+    "static/css/main.4e53ea44.css",
+    "static/js/main.1b73a9b6.js"
   ]
 }
