@@ -1,7 +1,8 @@
 .Today {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 1em;
   height: 100%;
 }
 .Today .city-date-time-wrapper .city {
