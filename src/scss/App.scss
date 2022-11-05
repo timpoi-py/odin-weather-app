@@ -7,6 +7,9 @@
   .app-container {
     padding: 0.5em;
     height: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+
     display: flex;
     flex-direction: column;
     justify-content: space-between;

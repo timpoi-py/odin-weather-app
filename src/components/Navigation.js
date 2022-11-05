@@ -6,7 +6,7 @@ const Navigation = () => {
   return (
     <div className="navigation">
       <NavLink to={"/"}>Today</NavLink>
-      <NavLink to={"/forecast"}>Next 5 Days</NavLink>
+      <NavLink to={"/forecast"}>Next 4 Days</NavLink>
     </div>
   );
 };

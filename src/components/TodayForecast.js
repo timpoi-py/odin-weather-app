@@ -17,7 +17,6 @@ const TodayForecast = () => {
           DateTime.now().plus({ days: 1 }).toFormat("D"))
     );
     setTodayForecastList(filteredForecastList);
-    console.log(filteredForecastList);
   };
 
   useEffect(() => {

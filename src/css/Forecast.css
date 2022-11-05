@@ -1,0 +1,9 @@
+.forecast .weather-card-container .weather-card > * {
+  font-size: 0.8em;
+}
+.forecast .weather-card-container .weather-card {
+  padding: 0.5em 0.2em;
+}
+.forecast .weather-card-container .weather-card .weather-icon-forecast {
+  font-size: 1em;
+}/*# sourceMappingURL=Forecast.css.map */

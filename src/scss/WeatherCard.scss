@@ -1,6 +1,6 @@
 @import "custom";
 
-.weather-card {
+.weather-card-container {
   display: flex;
   justify-content: flex-start;
   align-items: stretch;
@@ -14,7 +14,7 @@
   }
 }
 
-.weather-card > * {
+.weather-card-container > * {
   flex-shrink: 0;
   width: 10ch;
   padding: 1em 0;

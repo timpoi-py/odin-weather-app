@@ -5,13 +5,11 @@ import WeatherIconForecast from "./WeatherIconForecast";
 
 const WeatherCard = ({ forecast }) => {
   return (
-    <div className="weather-card">
+    <div className="weather-card-container">
       {forecast.map((each, index) => {
         return (
-          <div key={index}>
-            <p className="time">
-              {DateTime.fromMillis(each.dt * 1000).toFormat("t")}
-            </p>
+          <div className="weather-card" key={index}>
+            <p className="time">{each.dt_txt.slice(11, 16)}</p>
             <WeatherIconForecast weatherMain={each.weather[0].main} />
             <p className="description">{each.weather[0].description}</p>
             <p className="temp">

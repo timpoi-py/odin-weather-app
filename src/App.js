@@ -11,7 +11,7 @@ export const todayContext = createContext();
 function App() {
   const [cityData, setCityData] = useState();
   const [country, setCountry] = useState();
-  const [searchCity, setSearchCity] = useState("seoul");
+  const [searchCity, setSearchCity] = useState("Korea");
   const [city, setCity] = useState();
   const [lat, setLat] = useState();
   const [lon, setLon] = useState();
@@ -29,6 +29,51 @@ function App() {
   const [windSpeed, setWindSpeed] = useState();
   const [forecastList, setForecastList] = useState([]);
   const [weatherMain, setWeatherMain] = useState();
+
+  const [firstDay, setFirstDay] = useState([]);
+  const [secondDay, setSecondDay] = useState([]);
+  const [thirdDay, setThirdDay] = useState([]);
+  const [fourthDay, setFourthDay] = useState([]);
+  const [fifthDay, setFifthDay] = useState([]);
+
+  const categorizeForecastList = (dataDt, dataList) => {
+    const firstFilter = dataList.filter((each) => {
+      return (
+        DateTime.fromISO(each.dt_txt.slice(0, 10)).toFormat("DD") ===
+        dataDt.toFormat("DD")
+      );
+    });
+    const secondFilter = dataList.filter((each) => {
+      return (
+        DateTime.fromISO(each.dt_txt.slice(0, 10)).toFormat("DD") ===
+        dataDt.plus({ days: 1 }).toFormat("DD")
+      );
+    });
+    const thirdFilter = dataList.filter((each) => {
+      return (
+        DateTime.fromISO(each.dt_txt.slice(0, 10)).toFormat("DD") ===
+        dataDt.plus({ days: 2 }).toFormat("DD")
+      );
+    });
+    const fourthFilter = dataList.filter((each) => {
+      return (
+        DateTime.fromISO(each.dt_txt.slice(0, 10)).toFormat("DD") ===
+        dataDt.plus({ days: 3 }).toFormat("DD")
+      );
+    });
+    const fifthFilter = dataList.filter((each) => {
+      return (
+        DateTime.fromISO(each.dt_txt.slice(0, 10)).toFormat("DD") ===
+        dataDt.plus({ days: 4 }).toFormat("DD")
+      );
+    });
+
+    setFirstDay(firstFilter);
+    setSecondDay(secondFilter);
+    setThirdDay(thirdFilter);
+    setFourthDay(fourthFilter);
+    setFifthDay(fifthFilter);
+  };
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -80,19 +125,7 @@ function App() {
             setWeatherMain(data.weather[0].main);
             setWindSpeed(data.wind.speed);
 
-            fetch(
-              `https://api.openweathermap.org/data/2.5/forecast?lat=${dataLat}&lon=${dataLon}&appid=${process.env.REACT_APP_WEATHER_API_KEY}&units=metric`
-            )
-              .then((response) => {
-                if (response.ok) {
-                  return response.json();
-                }
-                throw response;
-              })
-              .then((data) => {
-                setForecastList(data.list);
-              });
-            fetch(
+            const fetch1 = fetch(
               `https://api.timezonedb.com/v2.1/get-time-zone?key=${process.env.REACT_APP_TIME_API_KEY}&format=json&by=position&lat=${dataLat}&lng=${dataLon}`
             )
               .then((response) => {
@@ -119,7 +152,24 @@ function App() {
                 setDate(dateFormatted);
                 setTime(timeFormatted);
                 setCountry(data.countryName);
+                return dtDateTime;
               });
+            const fetch2 = fetch(
+              `https://api.openweathermap.org/data/2.5/forecast?lat=${dataLat}&lon=${dataLon}&appid=${process.env.REACT_APP_WEATHER_API_KEY}&units=metric`
+            )
+              .then((response) => {
+                if (response.ok) {
+                  return response.json();
+                }
+                throw response;
+              })
+              .then((data) => {
+                setForecastList(data.list);
+                return data.list;
+              });
+            Promise.all([fetch1, fetch2]).then((data) => {
+              categorizeForecastList(data[0], data[1]);
+            });
           });
       });
   }, [searchCity]);
@@ -148,6 +198,11 @@ function App() {
             windSpeed,
             weatherMain,
             forecastList,
+            firstDay,
+            secondDay,
+            thirdDay,
+            fourthDay,
+            fifthDay,
           }}
         >
           <Routes>

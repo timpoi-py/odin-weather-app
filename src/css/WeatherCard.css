@@ -1,4 +1,4 @@
-.weather-card {
+.weather-card-container {
   display: flex;
   justify-content: flex-start;
   align-items: stretch;
@@ -7,11 +7,11 @@
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
 }
-.weather-card .temp {
+.weather-card-container .temp {
   margin-top: auto;
 }
 
-.weather-card > * {
+.weather-card-container > * {
   flex-shrink: 0;
   width: 10ch;
   padding: 1em 0;

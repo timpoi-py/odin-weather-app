@@ -1,0 +1,16 @@
+@import "custom";
+
+.forecast {
+  .weather-card-container {
+    .weather-card > * {
+      font-size: 0.8em;
+    }
+
+    .weather-card {
+      padding: 0.5em 0.2em;
+      .weather-icon-forecast {
+        font-size: 1em;
+      }
+    }
+  }
+}

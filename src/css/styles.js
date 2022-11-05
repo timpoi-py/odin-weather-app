@@ -6,3 +6,4 @@ import "./WeatherIconMain.css";
 import "./WeatherIconForecast.css";
 import "./TodayForecast.css";
 import "./Navigation.css";
+import "./Forecast.css";
